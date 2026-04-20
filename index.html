@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KEEOH — Product Manager</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sans': ['Inter', 'sans-serif'],
+            'display': ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            'warmwhite': '#f7f7f5',
+            'deepslate': '#1c1c2e',
+            'indigo-accent': '#4f5bd5',
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="scene">
+    <!-- Building View -->
+    <div id="building-view">
+      <!-- Header -->
+      <header class="site-header">
+        <div class="font-display font-bold text-sm tracking-widest text-deepslate">KEEOH</div>
+      </header>
+
+      <!-- Building -->
+      <div id="building-wrapper">
+        <svg id="building-svg" viewBox="0 0 340 520" xmlns="http://www.w3.org/2000/svg" width="100%" max-width="400">
+          <defs>
+            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="12" stdDeviation="8" flood-opacity="0.08" />
+            </filter>
+          </defs>
+
+          <!-- Background -->
+          <rect width="340" height="520" fill="none" />
+
+          <!-- Rooftop structure -->
+          <g id="rooftop" filter="url(#shadow)">
+            <!-- Rooftop edge -->
+            <rect x="32" y="48" width="276" height="16" fill="white" stroke="#1c1c2e" stroke-width="1.5" />
+
+            <!-- Antenna -->
+            <line x1="170" y1="48" x2="170" y2="10" stroke="#1c1c2e" stroke-width="1.5" />
+            <line x1="160" y1="25" x2="180" y2="25" stroke="#1c1c2e" stroke-width="1.5" />
+
+            <!-- Water tank -->
+            <rect x="238" y="20" width="32" height="28" fill="white" stroke="#1c1c2e" stroke-width="1.5" rx="1" />
+            <polyline points="234,20 254,2 274,20" fill="none" stroke="#1c1c2e" stroke-width="1.5" />
+          </g>
+
+          <!-- Main building walls -->
+          <rect x="40" y="64" width="260" height="420" fill="white" stroke="#1c1c2e" stroke-width="2" filter="url(#shadow)" />
+
+          <!-- FLOOR 6: PENTHOUSE (y: 64-164) -->
+          <g class="floor-group" data-section="hero">
+            <text x="46" y="80" font-family="Space Grotesk" font-size="11" font-weight="600" fill="#6b7280" letter-spacing="2">PH</text>
+
+            <!-- Windows -->
+            <rect x="70" y="75" width="50" height="65" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="70" y1="107.5" x2="120" y2="107.5" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="95" y1="75" x2="95" y2="140" stroke="#1c1c2e" stroke-width="1" />
+
+            <rect x="220" y="75" width="50" height="65" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="220" y1="107.5" x2="270" y2="107.5" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="245" y1="75" x2="245" y2="140" stroke="#1c1c2e" stroke-width="1" />
+
+            <!-- Hit area -->
+            <rect x="40" y="64" width="260" height="100" fill="transparent" class="floor-hit" />
+          </g>
+
+          <!-- Horizontal divider (between 6F and 5F) -->
+          <line x1="40" y1="164" x2="300" y2="164" stroke="#1c1c2e" stroke-width="1" />
+
+          <!-- FLOOR 5: 05 (y: 164-236) -->
+          <g class="floor-group" data-section="about">
+            <text x="46" y="180" font-family="Space Grotesk" font-size="11" font-weight="600" fill="#6b7280" letter-spacing="2">05</text>
+
+            <!-- Windows (4 windows) -->
+            <rect x="65" y="175" width="36" height="48" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="65" y1="199" x2="101" y2="199" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="83" y1="175" x2="83" y2="223" stroke="#1c1c2e" stroke-width="1" />
+
+            <rect x="117" y="175" width="36" height="48" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="117" y1="199" x2="153" y2="199" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="135" y1="175" x2="135" y2="223" stroke="#1c1c2e" stroke-width="1" />
+
+            <rect x="187" y="175" width="36" height="48" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="187" y1="199" x2="223" y2="199" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="205" y1="175" x2="205" y2="223" stroke="#1c1c2e" stroke-width="1" />
+
+            <rect x="239" y="175" width="36" height="48" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="239" y1="199" x2="275" y2="199" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="257" y1="175" x2="257" y2="223" stroke="#1c1c2e" stroke-width="1" />
+
+            <!-- Hit area -->
+            <rect x="40" y="164" width="260" height="72" fill="transparent" class="floor-hit" />
+          </g>
+
+          <!-- Horizontal divider -->
+          <line x1="40" y1="236" x2="300" y2="236" stroke="#1c1c2e" stroke-width="1" />
+
+          <!-- FLOOR 4: 04 (y: 236-308) -->
+          <g class="floor-group" data-section="role">
+            <text x="46" y="252" font-family="Space Grotesk" font-size="11" font-weight="600" fill="#6b7280" letter-spacing="2">04</text>
+
+            <rect x="65" y="247" width="36" height="48" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="65" y1="271" x2="101" y2="271" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="83" y1="247" x2="83" y2="295" stroke="#1c1c2e" stroke-width="1" />
+
+            <rect x="117" y="247" width="36" height="48" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="117" y1="271" x2="153" y2="271" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="135" y1="247" x2="135" y2="295" stroke="#1c1c2e" stroke-width="1" />
+
+            <rect x="187" y="247" width="36" height="48" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="187" y1="271" x2="223" y2="271" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="205" y1="247" x2="205" y2="295" stroke="#1c1c2e" stroke-width="1" />
+
+            <rect x="239" y="247" width="36" height="48" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="239" y1="271" x2="275" y2="271" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="257" y1="247" x2="257" y2="295" stroke="#1c1c2e" stroke-width="1" />
+
+            <!-- Hit area -->
+            <rect x="40" y="236" width="260" height="72" fill="transparent" class="floor-hit" />
+          </g>
+
+          <!-- Horizontal divider -->
+          <line x1="40" y1="308" x2="300" y2="308" stroke="#1c1c2e" stroke-width="1" />
+
+          <!-- FLOOR 3: 03 (y: 308-380) -->
+          <g class="floor-group" data-section="skills">
+            <text x="46" y="324" font-family="Space Grotesk" font-size="11" font-weight="600" fill="#6b7280" letter-spacing="2">03</text>
+
+            <rect x="65" y="319" width="36" height="48" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="65" y1="343" x2="101" y2="343" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="83" y1="319" x2="83" y2="367" stroke="#1c1c2e" stroke-width="1" />
+
+            <rect x="117" y="319" width="36" height="48" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="117" y1="343" x2="153" y2="343" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="135" y1="319" x2="135" y2="367" stroke="#1c1c2e" stroke-width="1" />
+
+            <rect x="187" y="319" width="36" height="48" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="187" y1="343" x2="223" y2="343" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="205" y1="319" x2="205" y2="367" stroke="#1c1c2e" stroke-width="1" />
+
+            <rect x="239" y="319" width="36" height="48" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="239" y1="343" x2="275" y2="343" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="257" y1="319" x2="257" y2="367" stroke="#1c1c2e" stroke-width="1" />
+
+            <!-- Hit area -->
+            <rect x="40" y="308" width="260" height="72" fill="transparent" class="floor-hit" />
+          </g>
+
+          <!-- Horizontal divider -->
+          <line x1="40" y1="380" x2="300" y2="380" stroke="#1c1c2e" stroke-width="1" />
+
+          <!-- FLOOR 2: 02 (y: 380-452) -->
+          <g class="floor-group" data-section="works">
+            <text x="46" y="396" font-family="Space Grotesk" font-size="11" font-weight="600" fill="#6b7280" letter-spacing="2">02</text>
+
+            <rect x="65" y="391" width="36" height="48" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="65" y1="415" x2="101" y2="415" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="83" y1="391" x2="83" y2="439" stroke="#1c1c2e" stroke-width="1" />
+
+            <rect x="117" y="391" width="36" height="48" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="117" y1="415" x2="153" y2="415" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="135" y1="391" x2="135" y2="439" stroke="#1c1c2e" stroke-width="1" />
+
+            <rect x="187" y="391" width="36" height="48" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="187" y1="415" x2="223" y2="415" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="205" y1="391" x2="205" y2="439" stroke="#1c1c2e" stroke-width="1" />
+
+            <rect x="239" y="391" width="36" height="48" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="239" y1="415" x2="275" y2="415" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="257" y1="391" x2="257" y2="439" stroke="#1c1c2e" stroke-width="1" />
+
+            <!-- Hit area -->
+            <rect x="40" y="380" width="260" height="72" fill="transparent" class="floor-hit" />
+          </g>
+
+          <!-- Horizontal divider -->
+          <line x1="40" y1="452" x2="300" y2="452" stroke="#1c1c2e" stroke-width="1" />
+
+          <!-- FLOOR 1: GROUND (y: 452-484) -->
+          <g class="floor-group" data-section="contact">
+            <text x="46" y="468" font-family="Space Grotesk" font-size="11" font-weight="600" fill="#6b7280" letter-spacing="2">G</text>
+
+            <!-- Entrance door (arched) -->
+            <rect x="140" y="456" width="60" height="50" rx="30" fill="none" stroke="#1c1c2e" stroke-width="2" />
+            <line x1="170" y1="456" x2="170" y2="506" stroke="#1c1c2e" stroke-width="1" />
+
+            <!-- Side window -->
+            <rect x="70" y="463" width="36" height="40" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="70" y1="483" x2="106" y2="483" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="88" y1="463" x2="88" y2="503" stroke="#1c1c2e" stroke-width="1" />
+
+            <!-- Side window -->
+            <rect x="234" y="463" width="36" height="40" rx="2" fill="#f0f0f8" stroke="#1c1c2e" stroke-width="1.5" class="window" />
+            <line x1="234" y1="483" x2="270" y2="483" stroke="#1c1c2e" stroke-width="1" />
+            <line x1="252" y1="463" x2="252" y2="503" stroke="#1c1c2e" stroke-width="1" />
+
+            <!-- Hit area -->
+            <rect x="40" y="452" width="260" height="80" fill="transparent" class="floor-hit" />
+          </g>
+        </svg>
+      </div>
+
+      <!-- Floor hint -->
+      <div class="floor-hint">Click each floor to explore</div>
+    </div>
+
+    <!-- Detail Panel -->
+    <div id="detail-panel" class="hidden">
+      <button id="back-btn">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back
+      </button>
+      <div id="panel-content"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
